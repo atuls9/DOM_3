@@ -60,8 +60,8 @@ function buttonout(e) {
 }
 
 
-var newName = document.querySelector('#name');
-var newEmail = document.querySelector('#email');
+// var newName = document.querySelector('#name');
+// var newEmail = document.querySelector('#email');
 var myForm = document.querySelector('#my-form');
 const msg = document.querySelector('.msg');
 const userList = document.querySelector('#users');
@@ -70,20 +70,30 @@ myForm.addEventListener('submit', onSubmit)
 
 function onSubmit(e) {
     e.preventDefault();
+    var newName = document.querySelector('#name');
+    var newEmail = document.querySelector('#email');
     button[2].style.backgroundColor = 'green';
     if (newName.value === '' || newEmail.value === '') {
        
         msg.classList.add('error');
         msg.innerHTML = 'Please enter all fields';
-        setTimeout(() => msg.remove(), 5000);
+        setTimeout(() => msg.remove(), 3000);
     } 
     else {
         
-        const li = document.createElement('li');      
-        li.appendChild(document.createTextNode(`Name-${newName.value}:  Email-${newEmail.value}`));
-        userList.appendChild(li);
-        newName.value = '';
-        newEmail.value = '';
+        const li1 = document.createElement('li');      
+        li1.appendChild(document.createTextNode(`Name-${newName.value}`))
+        userList.appendChild(li1);
+        // userList.appendChild(document.createElement('br'))
+        const li2 = document.createElement('li');  
+        li2.appendChild(document.createTextNode(` Email-${newEmail.value}`))
+        userList.appendChild(li2);
+        // newName.value = '';
+        // newEmail.value = '';
+        var nm = document.createTextNode(`${newName.value}`)
+        // console.log('bbbbbbbb',nm)
+        localStorage.setItem('Name',nm.textContent);
+        // alert(nm.textContent);
       }
 
 }
