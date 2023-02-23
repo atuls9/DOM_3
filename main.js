@@ -92,8 +92,16 @@ function onSubmit(e) {
         // newEmail.value = '';
         var nm = document.createTextNode(`${newName.value}`)
         // console.log('bbbbbbbb',nm)
-        localStorage.setItem('Name',nm.textContent);
-        // alert(nm.textContent);
+        // localStorage.setItem('Name2',nm.textContent);
+        // // alert(nm.textContent);
+        // localStorage.setItem('Email3',document.createTextNode(` Email-${newEmail.value}`).textContent);
+
+        let myobj = {
+            'Name' : nm.textContent,
+            'Email': document.createTextNode(newEmail).textContent
+        }
+         
+        localStorage.setItem('User Details',JSON.stringify(myobj));
       }
 
 }
