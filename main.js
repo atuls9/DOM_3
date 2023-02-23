@@ -74,18 +74,18 @@ function onSubmit(e) {
     var newEmail = document.querySelector('#email');
     button[2].style.backgroundColor = 'green';
     if (newName.value === '' || newEmail.value === '') {
-       
+
         msg.classList.add('error');
         msg.innerHTML = 'Please enter all fields';
         setTimeout(() => msg.remove(), 3000);
-    } 
+    }
     else {
-        
-        const li1 = document.createElement('li');      
+
+        const li1 = document.createElement('li');
         li1.appendChild(document.createTextNode(`Name-${newName.value}`))
         userList.appendChild(li1);
         // userList.appendChild(document.createElement('br'))
-        const li2 = document.createElement('li');  
+        const li2 = document.createElement('li');
         li2.appendChild(document.createTextNode(` Email-${newEmail.value}`))
         userList.appendChild(li2);
         // newName.value = '';
@@ -97,12 +97,12 @@ function onSubmit(e) {
         // localStorage.setItem('Email3',document.createTextNode(` Email-${newEmail.value}`).textContent);
 
         let myobj = {
-            'Name' : nm.textContent,
-            'Email': document.createTextNode(newEmail).textContent
+            'Name': nm.textContent,
+            'Email': document.createTextNode(newEmail.value).textContent
         }
-         
-        localStorage.setItem('User Details',JSON.stringify(myobj));
-      }
+
+        localStorage.setItem('User Details', JSON.stringify(myobj));
+    }
 
 }
 
